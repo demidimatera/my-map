@@ -1,0 +1,27 @@
+---
+title: "Map Presentation"
+author: "Demi AIra Dimatera"
+date: "January 1, 2019"
+output: ioslides_presentation
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```                     
+                      
+## Map
+```{r}
+library(leaflet)
+my_map<- leaflet()%>%
+ addTiles()
+my_map
+
+set.seed(2019-01-01)
+df <- data.frame(lat = runif(500, min = 39.25, max = 39.35),
+                 lng = runif(500, min = -76.65, max = -76.5))
+df %>%
+  leaflet()%>%
+  addTiles()%>%
+  addMarkers(clusterOptions = markerClusterOptions())
+```
